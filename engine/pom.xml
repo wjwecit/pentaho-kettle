@@ -23,10 +23,10 @@
     <maven-failsafe-plugin.reuseForks>false</maven-failsafe-plugin.reuseForks>
 
     <!-- Pentaho dependencies -->
-    <pentaho-reporting.version>8.1.0.0-SNAPSHOT</pentaho-reporting.version>
-    <pentaho-registry.version>8.1.0.0-SNAPSHOT</pentaho-registry.version>
-    <pentaho-connections.version>8.1.0.0-SNAPSHOT</pentaho-connections.version>
-    <mondrian.version>8.1.0.0-SNAPSHOT</mondrian.version>
+    <pentaho-reporting.version>8.1.0.6-682</pentaho-reporting.version>
+    <pentaho-registry.version>8.1.0.6-682</pentaho-registry.version>
+    <pentaho-connections.version>8.1.0.6-682</pentaho-connections.version>
+    <mondrian.version>8.1.0.6-682</mondrian.version>
 
     <!-- Third-party dependencies -->
     <antlr-complete.version>3.5.2</antlr-complete.version>
@@ -99,23 +99,24 @@
     <dependency>
       <groupId>pentaho-kettle</groupId>
       <artifactId>kettle-core</artifactId>
-      <version>${project.version}</version>
+      <version>8.1.0.0-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>org.pentaho</groupId>
       <artifactId>pdi-engine-api</artifactId>
-      <version>${project.version}</version>
+      <version>8.1.0.6-682</version>
     </dependency>
 
     <!-- Pentaho dependencies -->
     <dependency>
       <groupId>org.pentaho</groupId>
       <artifactId>pentaho-registry</artifactId>
-      <version>${pentaho-registry.version}</version>
+      <version>8.1.0.6-682</version>
     </dependency>
     <dependency>
       <groupId>pentaho</groupId>
       <artifactId>metastore</artifactId>
+      <version>8.1.0.6-682</version>
       <exclusions>
         <exclusion>
           <groupId>*</groupId>
@@ -126,24 +127,24 @@
     <dependency>
       <groupId>pentaho</groupId>
       <artifactId>mondrian</artifactId>
-      <version>${mondrian.version}</version>
+      <version>8.1.0.6-682</version>
     </dependency>
     <dependency>
       <groupId>pentaho</groupId>
       <artifactId>pentaho-platform-api</artifactId>
-      <version>${project.version}</version>
+      <version>8.1.0.6-682</version>
     </dependency>
 
     <!-- Reporting dependencies -->
     <dependency>
       <groupId>org.pentaho.reporting.library</groupId>
       <artifactId>libfonts</artifactId>
-      <version>${pentaho-reporting.version}</version>
+      <version>8.1.0.6-682</version>
     </dependency>
     <dependency>
       <groupId>org.pentaho.reporting.engine</groupId>
       <artifactId>classic-core</artifactId>
-      <version>${pentaho-reporting.version}</version>
+      <version>8.1.0.6-682</version>
     </dependency>
 
 
@@ -920,19 +921,43 @@
       <version>${xmlunit.version}</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>org.codehaus.janino</groupId>
+      <artifactId>janino</artifactId>
+      <version>3.1.4</version>
+    </dependency>
+<!--    <dependency>-->
+<!--      <groupId>org.codehaus.janino</groupId>-->
+<!--      <artifactId>commons-compiler</artifactId>-->
+<!--      <version>3.1.4</version>-->
+<!--    </dependency>-->
+
+
   </dependencies>
 
   <build>
     <plugins>
+<!--      <plugin>-->
+<!--        <artifactId>maven-jar-plugin</artifactId>-->
+<!--        <executions>-->
+<!--          <execution>-->
+<!--            <goals>-->
+<!--              <goal>test-jar</goal>-->
+<!--            </goals>-->
+<!--          </execution>-->
+<!--        </executions>-->
+<!--      </plugin>-->
       <plugin>
-        <artifactId>maven-jar-plugin</artifactId>
-        <executions>
-          <execution>
-            <goals>
-              <goal>test-jar</goal>
-            </goals>
-          </execution>
-        </executions>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <dependencies>
+          <dependency>
+            <groupId>org.codehaus.janino</groupId>
+            <artifactId>janino</artifactId>
+            <version>3.1.4</version>
+          </dependency>
+        </dependencies>
       </plugin>
     </plugins>
   </build>

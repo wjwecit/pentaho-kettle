@@ -44,7 +44,7 @@
     <dependency>
       <groupId>pentaho</groupId>
       <artifactId>metastore</artifactId>
-      <version>${pdi.version}</version>
+      <version>8.1.0.6-682</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
@@ -56,13 +56,13 @@
     <dependency>
       <groupId>pentaho</groupId>
       <artifactId>pentaho-metastore-locator-api</artifactId>
-      <version>${pdi.version}</version>
+      <version>8.1.0.6-682</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>pentaho</groupId>
       <artifactId>pentaho-capability-manager</artifactId>
-      <version>${pdi.version}</version>
+      <version>8.1.0.6-682</version>
       <scope>provided</scope>
     </dependency>
     <dependency>

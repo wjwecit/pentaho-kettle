@@ -15,18 +15,18 @@
   </parent>
 
   <properties>
-    <pdi-engine-spark.version>${project.version}</pdi-engine-spark.version>
+    <pdi-engine-spark.version>8.1.0.6-682</pdi-engine-spark.version>
     <rxjava.version>2.0.4</rxjava.version>
 
-    <pentaho-json.version>${project.version}</pentaho-json.version>
-    <pdi-spark-driver.version>${project.version}</pdi-spark-driver.version>
-    <pdi-osgi-bridge.version>${project.version}</pdi-osgi-bridge.version>
-    <commons-database.version>${project.version}</commons-database.version>
-    <pentaho-registry.version>${project.version}</pentaho-registry.version>
-    <pentaho-metaverse.version>${project.version}</pentaho-metaverse.version>
-    <platform.version>${project.version}</platform.version>
-    <pentaho-reporting.version>${project.version}</pentaho-reporting.version>
-    <pentaho-hadoop-shims-api.version>${project.version}</pentaho-hadoop-shims-api.version>
+    <pentaho-json.version>8.1.0.6-682</pentaho-json.version>
+    <pdi-spark-driver.version>8.1.0.6-682</pdi-spark-driver.version>
+    <pdi-osgi-bridge.version>8.1.0.6-682</pdi-osgi-bridge.version>
+    <commons-database.version>8.1.0.6-682</commons-database.version>
+    <pentaho-registry.version>8.1.0.6-682</pentaho-registry.version>
+    <pentaho-metaverse.version>8.1.0.6-682</pentaho-metaverse.version>
+    <platform.version>8.1.0.6-682</platform.version>
+    <pentaho-reporting.version>8.1.0.6-682</pentaho-reporting.version>
+    <pentaho-hadoop-shims-api.version>61.2016.10.00-255</pentaho-hadoop-shims-api.version>
 
     <!-- third party -->
     <org.apache.karaf.main.version>3.0.3</org.apache.karaf.main.version>
@@ -76,7 +76,7 @@
       <version>${project.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.pentaho</groupId>
+      <groupId>pentaho</groupId>
       <artifactId>pentaho-hadoop-shims-api</artifactId>
       <version>${pentaho-hadoop-shims-api.version}</version>
     </dependency>
@@ -492,6 +492,31 @@
       </exclusions>
     </dependency>
     <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>5.1.46</version>
+    </dependency>
+    <dependency>
+      <groupId>ru.yandex.clickhouse</groupId>
+      <artifactId>clickhouse-jdbc</artifactId>
+      <version>0.1.34</version>
+    </dependency>
+    <dependency>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <version>42.2.16</version>
+    </dependency>
+    <dependency>
+      <groupId>io.trino</groupId>
+      <artifactId>trino-jdbc</artifactId>
+      <version>368</version>
+    </dependency>
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>fastjson</artifactId>
+      <version>1.2.76</version>
+    </dependency>
+    <dependency>
       <groupId>org.apache.geronimo.specs</groupId>
       <artifactId>geronimo-servlet_3.0_spec</artifactId>
       <version>${geronimo-servlet_3.0_spec.version}</version>
@@ -707,7 +732,9 @@
   <build>
     <plugins>
       <plugin>
-      <artifactId>maven-dependency-plugin</artifactId>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>3.2.0</version>
       <executions>
       <execution>
         <id>copy-libs</id>

@@ -20,8 +20,8 @@
     <pdi.version>8.1.0.0-SNAPSHOT</pdi.version>
 
     <!-- Pentaho dependenceis -->
-    <platform.version>8.1.0.0-SNAPSHOT</platform.version>
-    <pentaho-json.version>8.1.0.0-SNAPSHOT</pentaho-json.version>
+    <platform.version>8.1.0.6-682</platform.version>
+    <pentaho-json.version>8.1.0.6-682</pentaho-json.version>
 
     <!-- Third party dependencies -->
     <slf4j-api.version>1.7.7</slf4j-api.version>
@@ -397,7 +397,9 @@
   <build>
     <plugins>
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-antrun-plugin</artifactId>
+        <version>3.0.0</version>
         <executions>
           <execution>
             <id>wadl2java</id>
@@ -467,7 +469,9 @@
         see: http://jira.pentaho.com/browse/BACKLOG-17551
         -->
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-failsafe-plugin</artifactId>
+        <version>3.0.0-M5</version>
         <configuration>
           <skip>true</skip>
         </configuration>

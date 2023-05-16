@@ -30,20 +30,21 @@
     <pdi-google-analytics-plugin.version>${project.version}</pdi-google-analytics-plugin.version>
     <pdi-salesforce-plugin.version>${project.version}</pdi-salesforce-plugin.version>
     <ms-access-plugin.version>${project.version}</ms-access-plugin.version>
-    <lucid-db-streaming-loader-plugin.version>${project.version}</lucid-db-streaming-loader-plugin.version>
     <gp-bulk-loader-plugin.version>${project.version}</gp-bulk-loader-plugin.version>
     <pentaho-googledrive-vfs-plugin.version>${project.version}</pentaho-googledrive-vfs-plugin.version>
-    <google-bigquery-plugin.version>${project.version}</google-bigquery-plugin.version>
     <elasticsearch-bulk-insert-plugin.version>${project.version}</elasticsearch-bulk-insert-plugin.version>
     <pdi-xml-plugin.version>${project.version}</pdi-xml-plugin.version>
     <pdi-json-plugin.version>${project.version}</pdi-json-plugin.version>
     <pdi-sap-plugin.version>${project.version}</pdi-sap-plugin.version>
-    <big-data-plugin.version>${project.version}</big-data-plugin.version>
-    <pentaho-cassandra-plugin.version>${project.version}</pentaho-cassandra-plugin.version>
-    <pdi-teradata-tpt-plugin-package.version>${project.version}</pdi-teradata-tpt-plugin-package.version>
-    <pdi-platform-utils-plugin.version>${project.version}</pdi-platform-utils-plugin.version>
-    <vertica-bulkloader-plugin.version>${project.version}</vertica-bulkloader-plugin.version>
     <pdi-pur-plugin.version>${project.version}</pdi-pur-plugin.version>
+
+    <google-bigquery-plugin.version>8.1.0.6-682</google-bigquery-plugin.version>
+    <lucid-db-streaming-loader-plugin.version>8.1.0.6-682</lucid-db-streaming-loader-plugin.version>
+    <big-data-plugin.version>8.1.0.6-682</big-data-plugin.version>
+    <pentaho-cassandra-plugin.version>8.1.0.6-682</pentaho-cassandra-plugin.version>
+    <pdi-teradata-tpt-plugin-package.version>8.1.0.6-682</pdi-teradata-tpt-plugin-package.version>
+    <pdi-platform-utils-plugin.version>8.1.0.6-682</pdi-platform-utils-plugin.version>
+    <vertica-bulkloader-plugin.version>8.1.0.6-682</vertica-bulkloader-plugin.version>
   </properties>
 
   <dependencies>
@@ -323,18 +324,18 @@
         </exclusion>
       </exclusions>
     </dependency>
-    <dependency>
-      <groupId>org.pentaho</groupId>
-      <artifactId>pentaho-cassandra-plugin-package</artifactId>
-      <version>${pentaho-cassandra-plugin.version}</version>
-      <type>zip</type>
-      <exclusions>
-        <exclusion>
-          <groupId>*</groupId>
-          <artifactId>*</artifactId>
-        </exclusion>
-      </exclusions>
-    </dependency>
+<!--    <dependency>-->
+<!--      <groupId>org.pentaho</groupId>-->
+<!--      <artifactId>pentaho-cassandra-plugin-package</artifactId>-->
+<!--      <version>${pentaho-cassandra-plugin.version}</version>-->
+<!--      <type>zip</type>-->
+<!--      <exclusions>-->
+<!--        <exclusion>-->
+<!--          <groupId>*</groupId>-->
+<!--          <artifactId>*</artifactId>-->
+<!--        </exclusion>-->
+<!--      </exclusions>-->
+<!--    </dependency>-->
     <dependency>
       <groupId>org.pentaho.di.plugins</groupId>
       <artifactId>pdi-teradata-tpt-plugin-package</artifactId>

@@ -19,8 +19,7 @@
 
   <properties>
     <pdi.version>${project.version}</pdi.version>
-    <pentaho-metaverse.version>${project.version}</pentaho-metaverse.version>
-    <platform.version>${project.version}</platform.version>
+    <pentaho-metaverse.version>8.1.0.6-682</pentaho-metaverse.version>
     <servlet-api.version>2.3</servlet-api.version>
     <mockito.version>1.9.5</mockito.version>
     <guava.version>17.0</guava.version>
@@ -169,7 +168,7 @@
           <instructions>
             <Import-Package>org.pentaho.di.osgi, !org.junit, !org.mockito, !org.mockito.*, org.eclipse.swt*;resolution:=optional, *</Import-Package>
             <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
-            <Bundle-Version>${project.version}</Bundle-Version>
+            <Bundle-Version>8.1.0.6-682</Bundle-Version>
           </instructions>
         </configuration>
       </plugin>

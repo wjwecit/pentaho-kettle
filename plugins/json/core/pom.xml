@@ -16,8 +16,8 @@
 
   <properties>
     <pdi.version>8.1.0.0-SNAPSHOT</pdi.version>
-    <pentaho-metaverse.version>8.1.0.0-SNAPSHOT</pentaho-metaverse.version>
-    <platform.version>8.1.0.0-SNAPSHOT</platform.version>
+    <pentaho-metaverse.version>8.1.0.6-682</pentaho-metaverse.version>
+    <platform.version>8.1.0.6-682</platform.version>
     <commons.io.version>1.4</commons.io.version>
     <commons-vfs2.version>2.2</commons-vfs2.version>
     <commons-codec.version>1.9</commons-codec.version>
@@ -71,7 +71,7 @@
     <dependency>
       <groupId>pentaho</groupId>
       <artifactId>metastore</artifactId>
-      <version>${project.version}</version>
+      <version>8.1.0.6-682</version>
       <exclusions>
         <exclusion>
           <groupId>*</groupId>
