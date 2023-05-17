@@ -186,13 +186,14 @@ public class ExecuteJobServlet extends BaseHttpServlet implements CartePluginInt
 
     // Options taken from PAN
     //
-    String[] knownOptions = new String[] { "rep", "user", "pass", "job", "level", };
+    String[] knownOptions = new String[] { "rep", "user", "pass", "job", "level", "sync" };
 
     String repOption = request.getParameter( "rep" );
     String userOption = request.getParameter( "user" );
     String passOption = Encr.decryptPasswordOptionallyEncrypted( request.getParameter( "pass" ) );
     String jobOption = request.getParameter( "job" );
     String levelOption = request.getParameter( "level" );
+    String syncOption = request.getParameter("sync");
 
     response.setStatus( HttpServletResponse.SC_OK );
 
@@ -265,6 +266,11 @@ public class ExecuteJobServlet extends BaseHttpServlet implements CartePluginInt
       try {
         runJob( job );
         WebResult webResult = new WebResult( WebResult.STRING_OK, "Job started", carteObjectId );
+
+        // wait for job complete
+        if (syncOption.equals("sync")) {
+          job.join();
+        }
         out.println( webResult.getXML() );
         out.flush();
 

@@ -239,9 +239,13 @@ public class SwingGC implements GCInterface {
     errorArrow = getImageIcon( BasePropertyHandler.getProperty( "errorArrow_image" ) );
     disabledArrow = getImageIcon( BasePropertyHandler.getProperty( "disabledArrow_image" ) );
 
-    fontGraph = new Font( "FreeSans", Font.PLAIN, 10 );
-    fontNote = new Font( "FreeSans", Font.PLAIN, 10 );
-    fontSmall = new Font( "FreeSans", Font.PLAIN, 8 );
+//    fontGraph = new Font( "FreeSans", Font.PLAIN, 10 );
+//    fontNote = new Font( "FreeSans", Font.PLAIN, 10 );
+//    fontSmall = new Font( "FreeSans", Font.PLAIN, 8 );
+
+    fontGraph = new Font( "Microsoft YaHei", Font.PLAIN, 10 );
+    fontNote = new Font( "Microsoft YaHei", Font.PLAIN, 10 );
+    fontSmall = new Font( "Microsoft YaHei", Font.PLAIN, 8 );
 
     gc.setFont( fontGraph );
 

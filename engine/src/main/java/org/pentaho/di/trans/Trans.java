@@ -165,6 +165,7 @@ import static org.pentaho.di.trans.Trans.BitMaskStatus.BIT_STATUS_SUM;
  * @since 07-04-2003
  *
  */
+@SuppressWarnings("ALL")
 public class Trans implements VariableSpace, NamedParams, HasLogChannelInterface, LoggingObjectInterface,
     ExecutorInterface, ExtensionDataInterface {
 
@@ -629,7 +630,13 @@ public class Trans implements VariableSpace, NamedParams, HasLogChannelInterface
    *           if the transformation could not be prepared (initialized)
    */
   public void execute( String[] arguments ) throws KettleException {
-    prepareExecution( arguments );
+    try {
+      prepareExecution( arguments );
+    }
+    catch (KettleException e) {
+      transMeta.disposeEmbeddedMetastoreProvider();
+      log.logError("PrepareExecution KettleException>>>",e);
+    }
     startThreads();
   }
 
@@ -2968,7 +2975,7 @@ public class Trans implements VariableSpace, NamedParams, HasLogChannelInterface
    *
    * @param stepname
    *          the step name
-   * @param copynr
+   * @param copyNr number copied
    * @return the executing step found or null if no copy could be found.
    */
   public StepInterface findStepInterface( String stepname, int copyNr ) {
@@ -3633,7 +3640,7 @@ public class Trans implements VariableSpace, NamedParams, HasLogChannelInterface
    *          the execution configuration
    * @throws KettleException
    *           the kettle exception
-   * @see org.pentaho.di.ui.spoon.delegates.SpoonTransformationDelegate
+   *
    */
   public static void executeClustered( final TransSplitter transSplitter,
       final TransExecutionConfiguration executionConfiguration ) throws KettleException {
