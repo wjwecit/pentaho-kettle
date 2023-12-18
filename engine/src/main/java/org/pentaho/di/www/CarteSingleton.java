@@ -70,7 +70,7 @@ public class CarteSingleton {
     transformationMap.setSlaveServerConfig( config );
     jobMap = new JobMap();
     jobMap.setSlaveServerConfig( config );
-    detections = new ArrayList<SlaveServerDetection>();
+    detections = new ArrayList<>();
     socketRepository = new SocketRepository( log );
 
     installPurgeTimer( config, log, transformationMap, jobMap );
@@ -108,10 +108,10 @@ public class CarteSingleton {
             SlaveServerDetection slaveServerDetection = new SlaveServerDetection( client );
             master.sendXML( slaveServerDetection.getXML(), RegisterSlaveServlet.CONTEXT_PATH + "/" );
             log.logBasic( "Registered this slave server to master slave server ["
-              + master.toString() + "] on address [" + master.getServerAndPort() + "]" );
+              + master + "] on address [" + master.getServerAndPort() + "]" );
           } catch ( Exception e ) {
             log.logError( "Unable to register to master slave server ["
-              + master.toString() + "] on address [" + master.getServerAndPort() + "]" );
+              + master + "] on address [" + master.getServerAndPort() + "]" );
           }
         }
       }
@@ -160,6 +160,7 @@ public class CarteSingleton {
                 if ( trans != null && ( trans.isFinished() || trans.isStopped() ) && trans.getLogDate() != null ) {
                   // check the last log time
                   //
+                  //noinspection IntegerDivisionInFloatingPointContext
                   int diffInMinutes =
                     (int) Math.floor( ( System.currentTimeMillis() - trans.getLogDate().getTime() ) / 60000 );
                   if ( diffInMinutes >= objectTimeout ) {
@@ -191,6 +192,7 @@ public class CarteSingleton {
                 if ( job != null && ( job.isFinished() || job.isStopped() ) && job.getLogDate() != null ) {
                   // check the last log time
                   //
+                  //noinspection IntegerDivisionInFloatingPointContext
                   int diffInMinutes =
                     (int) Math.floor( ( System.currentTimeMillis() - job.getLogDate().getTime() ) / 60000 );
                   if ( diffInMinutes >= objectTimeout ) {
@@ -200,6 +202,10 @@ public class CarteSingleton {
                     LoggingRegistry.getInstance().removeLogChannelFileWriterBuffer( id );
 
                     jobMap.removeJob( entry );
+
+                    // Remove the logging information from the log registry & central log store
+                    LoggingRegistry.getInstance().removeIncludingChildren( id );
+                    KettleLogStore.discardLines( id, false );
 
                     log.logMinimal( "Cleaned up job "
                       + entry.getName() + " with id " + entry.getId() + " from " + job.getLogDate() );
@@ -237,10 +243,8 @@ public class CarteSingleton {
         servletLoggingObject.setContainerObjectId( carteObjectId );
         servletLoggingObject.setLogLevel( LogLevel.BASIC );
 
-        return carteSingleton;
-      } else {
-        return carteSingleton;
       }
+      return carteSingleton;
     } catch ( KettleException ke ) {
       throw new RuntimeException( ke );
     }
